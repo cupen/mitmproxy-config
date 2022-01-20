@@ -1,8 +1,8 @@
 import re
 from mitmproxy import ctx
 def websocket_message(flow):
-    # get the latest message
-    message = flow.messages[-1]
+    # latest ws message
+    message = flow.websocket.messages[-1]
     if message.from_client:
          ctx.log.info("Client: {}".format(message.content))
     else:
